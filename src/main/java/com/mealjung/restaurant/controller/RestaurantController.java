@@ -3,6 +3,8 @@ package com.mealjung.restaurant.controller;
 import com.mealjung.common.page.PageResponse;
 import com.mealjung.restaurant.controller.dto.RestaurantResponse;
 import com.mealjung.restaurant.controller.dto.RestaurantSearchCondition;
+import com.mealjung.restaurant.controller.dto.RestaurantUpdateRequest;
+import com.mealjung.restaurant.entity.Restaurant;
 import com.mealjung.restaurant.service.RestaurantService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -26,8 +28,11 @@ public class RestaurantController {
 
     @PutMapping("/{id}")
     public Long update(@PathVariable("id") Long id, @RequestBody RestaurantUpdateRequest request) {
-        return restaurantService.update(id);
+        return restaurantService.update(id, request);
     }
 
-
+    @PatchMapping("/{id}")
+    public Long softDelete(@PathVariable("id") Long id) {
+        return restaurantService.softDelete(id);
+    }
 }

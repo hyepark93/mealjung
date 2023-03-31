@@ -32,6 +32,15 @@ public class RestaurantService {
     public Long update(Long id, @RequestBody RestaurantUpdateRequest request) {
         Restaurant restaurant = restaurantRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("해당 식당이 없습니다. id = " + id));
-        restaurant.up
+        restaurant.update(request);
+        return restaurant.getId();
+    }
+
+    @Transactional
+    public Long softDelete(Long id) {
+        Restaurant restaurant = restaurantRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("해당 식당이 없습니다. id = " + id));
+        restaurantRepository.updateIsDeleted(restaurant.getId());
+        return restaurant.getId();
     }
 }
