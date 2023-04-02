@@ -20,9 +20,7 @@ public class RestaurantResponse {
     private List<Review> reviews;
     private String name;
     private String trdstategbn;
-    private String trdstatenm;
     private String dtlstategbn;
-    private DtlState dtlstatenm;
     private String sitetel;
     private String sitewhladdr;
     private String rdnwhladdr;
@@ -40,9 +38,7 @@ public class RestaurantResponse {
         this.reviews = entity.getReviews();
         this.name = entity.getName();
         this.trdstategbn = entity.getTrdstategbn().getName();
-        this.trdstatenm = entity.getTrdstatenm();
         this.dtlstategbn = entity.getDtlstategbn().getName();
-        this.dtlstatenm = entity.getDtlstatenm();
         this.sitetel = entity.getSitetel();
         this.sitewhladdr = entity.getSitewhladdr();
         this.rdnwhladdr = entity.getRdnwhladdr();

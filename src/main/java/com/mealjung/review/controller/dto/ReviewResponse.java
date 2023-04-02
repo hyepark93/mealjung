@@ -10,20 +10,16 @@ import java.time.LocalDateTime;
 @Getter
 @NoArgsConstructor
 public class ReviewResponse {
-    private Long id;
     private Long restaurantId;
-    private String writer;
+    private Long menuId;
+    private Long writer;
     private String content;
-    private LocalDateTime regDate;
-    private double rating;
 
     @Builder
     public ReviewResponse(Review entity) {
-        this.id = entity.getId();
-        this.restaurantId = entity.getRestaurant().getId();
-        this.writer = entity.getWriter();
+        this.restaurantId = entity.getRestaurantId();
+        this.menuId = entity.getMenuId();
+        this.writer = entity.getUserNo();
         this.content = entity.getContent();
-        this.regDate = entity.getRegDate();
-        this.rating = entity.getRating();
     }
 }

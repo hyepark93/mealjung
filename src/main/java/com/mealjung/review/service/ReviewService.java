@@ -28,4 +28,12 @@ public class ReviewService {
         review.update(request);
         return review.getId();
     }
+
+    @Transactional
+    public Long sofeDelete(Long id) {
+        Review review = reviewRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("해당 게시물이 없습니다. id = " + id));
+        reviewRepository.updateIsDeleted(review.getId());
+        return review.getId();
+    }
 }

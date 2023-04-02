@@ -1,9 +1,10 @@
 package com.mealjung.restaurant.entity;
 
+import com.mealjung.common.utils.converter.EnumType;
 import lombok.Getter;
 
 @Getter
-public enum District {
+public enum District implements EnumType {
     GANGNAM("GN", "강남구"),
     GANGDONG("GD", "강동구"),
     GANGBUK("GB", "강북구"),
@@ -30,10 +31,10 @@ public enum District {
     JUNG("JU", "중구"),
     JUNGNANG("JNGN", "중랑구");
     private String code;
-    private String name;
+    private String value;
 
-    District(String code, String name) {
+    District(String code, String value) {
         this.code = code;
-        this.name = name;
+        this.value = value;
     }
 }

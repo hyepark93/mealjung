@@ -1,7 +1,6 @@
 package com.mealjung.review.entity;
 
 import com.mealjung.common.entity.BaseEntity;
-import com.mealjung.restaurant.entity.Restaurant;
 import com.mealjung.review.controller.dto.ReviewSaveRequest;
 import com.mealjung.review.controller.dto.ReviewUpdateRequest;
 import lombok.AccessLevel;
@@ -28,6 +27,7 @@ public class Review extends BaseEntity {
     private String title;
     @Column(columnDefinition = "text")
     private String content;
+    private boolean isDeleted;
 
     @Builder
     public Review(Long menuId, Long restaurantId, Long userNo, String title, String content) {
